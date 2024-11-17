@@ -132,8 +132,7 @@ const education = [
     icon: 'fas fa-user-graduate',
     achievements: [
       "Dean's List recipient",
-      'Specialized in Software Development',
-      'Final Year Project: IoT-based Smart Home System'
+      'Specialized in Software Development'
     ]
   },
   {
@@ -143,8 +142,7 @@ const education = [
     cgpa: '3.54',
     icon: 'fas fa-scroll',
     achievements: [
-      'Academic Excellence Award',
-      'IT Club Vice President',
+      'Best Final Year Project Proposal',
       'Participated in various tech competitions'
     ]
   }
@@ -153,11 +151,11 @@ const education = [
 // Experience Data
 const experience = [
   {
-    period: 'June 2021 - Present',
-    role: 'Software Developer',
-    company: 'XYZ Tech Company',
-    icon: 'fas fa-code',
-    roleIcon: 'fas fa-laptop-code',
+    period: 'February 2024 - Present',
+    role: 'Technical Support Analyst',
+    company: 'JOS Malaysia Sdn Bhd',
+    icon: 'fas fa-laptop',
+    roleIcon: 'fas fa-laptop',
     responsibilities: [
       'Developed and maintained web applications using React and Node.js',
       'Collaborated with cross-functional teams to design and implement new features',
@@ -165,10 +163,22 @@ const experience = [
     ]
   },
   {
-    period: 'May 2020 - August 2020',
-    role: 'Frontend Developer Intern',
-    company: 'ABC Digital Solutions',
+    period: 'August 2023 - November 2023',
+    role: 'IT Support Technician',
+    company: 'Panasonic Manufacturing Malaysia Berhad',
     icon: 'fas fa-laptop',
+    roleIcon: 'fas fa-laptop-code',
+    responsibilities: [
+      'Worked on improving the UI of client websites using HTML, CSS, and JavaScript',
+      'Assisted in building responsive layouts and mobile-first designs',
+      'Contributed to weekly sprint meetings and code reviews'
+    ]
+  },
+  {
+    period: 'August 2019 - November 2020',
+    role: 'Backend Developer Intern',
+    company: 'Grab Haulier Sdn Bhd',
+    icon: 'fas fa-code',
     roleIcon: 'fas fa-code',
     responsibilities: [
       'Worked on improving the UI of client websites using HTML, CSS, and JavaScript',
