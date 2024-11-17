@@ -2,7 +2,7 @@
     <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50 transition-colors duration-200">
       <div class="container mx-auto px-2 py-2 flex items-center justify-between">
         <div class="flex items-center">
-          <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Amirul</h1>
+          <a href="#hero"><h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Amirul</h1></a>
         </div>
   
         <div class="flex items-center space-x-4">

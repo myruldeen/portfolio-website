@@ -1,7 +1,10 @@
 <template>
     <section id="business" class="section py-16 bg-gray-100">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Business Services</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          <i class="fas fa-briefcase text-indigo-600 mr-2"></i> 
+          Business Services
+        </h2>
         <p class="mb-8">Here are some of the business I made.</p>
   
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

@@ -1,7 +1,10 @@
 <template>
   <section id="contact" class="section py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">
+        <i class="fas fa-envelope-open-text text-indigo-600 mr-2"></i> 
+        Get in Touch
+      </h2>
       <p class="mb-8">
         Feel free to reach out to me via any of the contact methods below. I'm always open to 
         discussing new opportunities, ideas, or collaborations.

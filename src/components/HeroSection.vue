@@ -1,5 +1,5 @@
 <template>
-  <section class="section bg-gray-50 text-center py-20">
+  <section id="hero" class="section bg-gray-50 text-center py-20">
     <div class="container mx-auto px-4">
       <!-- Profile Image -->
       <div class="mb-6">

@@ -1,7 +1,10 @@
 <template>
     <section id="skills" class="section py-16 bg-white">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Skills</h2>
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">
+          <i class="fas fa-tools text-indigo-600 mr-2"></i> 
+          Skills
+        </h2>
         <p class="mb-8">Here are some of the technologies and tools I work with regularly.</p>
   
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
