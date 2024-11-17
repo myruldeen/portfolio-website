@@ -1,9 +1,8 @@
 <template>
-  <section class="min-h-screen relative overflow-hidden transition-colors duration-700"
-           :class="isDark ? 'bg-gradient-to-b from-gray-900 to-gray-700' : 'bg-gradient-to-b from-blue-200 to-blue-400'">
-    <!-- Meteor Shower (Dark Mode) -->
-    <div v-if="isDark" class="meteor-shower">
-      <div v-for="n in 20" :key="`meteor-${n}`" 
+  <section class="min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 dark:from-black dark:to-gray-900">
+    <!-- Meteor Shower -->
+    <div class="meteor-shower">
+      <div v-for="n in 20" :key="n" 
            class="meteor"
            :style="{ 
              '--delay': `${Math.random() * 10}s`,
@@ -13,21 +12,8 @@
       </div>
     </div>
 
-    <!-- Moving Clouds (Light Mode) -->
-    <div v-else class="clouds-container">
-      <div v-for="n in 8" :key="`cloud-${n}`" 
-           class="cloud"
-           :style="{
-             '--delay': `${Math.random() * 10}s`,
-             '--duration': `${20 + Math.random() * 10}s`,
-             '--top': `${Math.random() * 60}%`,
-             '--scale': `${0.5 + Math.random() * 0.5}`
-           }">
-      </div>
-    </div>
-
-    <!-- Stars (Dark Mode) -->
-    <div v-if="isDark" class="stars-container">
+    <!-- Stars Background -->
+    <div class="stars-container">
       <div v-for="n in 50" :key="`star-${n}`" 
            class="star"
            :style="{ 
@@ -43,101 +29,94 @@
       <div class="text-center">
         <!-- Profile Image -->
         <div class="mb-6 relative inline-block">
-          <div class="absolute inset-0 rounded-full blur-md opacity-50"
-               :class="isDark ? 'bg-indigo-500' : 'bg-white'"></div>
+          <div class="absolute inset-0 bg-indigo-500 rounded-full blur-md opacity-50"></div>
           <img 
             src="https://via.placeholder.com/150" 
             alt="Muhammad Amirul Rashideen"
-            class="w-32 h-32 rounded-full relative z-10 shadow-xl transform transition duration-300 
-                   hover:scale-110"
-            :class="isDark ? 'border-4 border-white/30' : 'border-4 border-white'"
+            class="w-32 h-32 rounded-full relative z-10 border-4 border-white/30 
+                   shadow-xl transform transition duration-300 
+                   hover:scale-110 hover:border-indigo-400/50"
           />
         </div>
 
         <!-- Name and Title -->
-        <h2 class="text-4xl font-extrabold mb-4 transition-colors duration-300"
-            :class="isDark ? 'text-white' : 'text-gray-800'">
+        <h2 class="text-4xl font-extrabold text-white mb-4 
+                   animate-fadeIn [animation-delay:200ms]">
           Hi, I'm Muhammad Amirul Rashideen
         </h2>
 
-        <p class="mt-4 text-xl mb-8 transition-colors duration-300"
-           :class="isDark ? 'text-gray-300' : 'text-gray-600'">
+        <p class="mt-4 text-gray-300 text-xl mb-8
+                  animate-fadeIn [animation-delay:400ms]">
           IT enthusiast interest in IoT, Software and Hardware
         </p>
 
         <!-- Social Links -->
-        <div class="mt-6 flex justify-center space-x-4">
-          <a v-for="social in socialLinks"
-             :key="social.title"
-             :href="social.link" 
-             :title="social.title" 
+        <div class="mt-6 flex justify-center space-x-4 
+                    animate-fadeIn [animation-delay:600ms]">
+          <a href="https://linkedin.com/in/yourusername" 
+             title="LinkedIn" 
              target="_blank"
-             class="w-10 h-10 rounded-full flex items-center justify-center shadow-lg 
-                    transform transition duration-300 hover:scale-110"
-             :class="isDark ? 'bg-white/10 backdrop-blur-sm text-white hover:bg-indigo-500' : 
-                              'bg-white text-gray-600 hover:bg-indigo-500 hover:text-white'">
-            <i :class="social.icon"></i>
+             class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 
+                    flex items-center justify-center shadow-lg 
+                    hover:bg-indigo-500 hover:scale-110 
+                    transform transition duration-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          
+          <a href="https://github.com/yourusername" 
+             title="Github" 
+             target="_blank"
+             class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 
+                    flex items-center justify-center shadow-lg 
+                    hover:bg-indigo-500 hover:scale-110 
+                    transform transition duration-300">
+            <i class="fab fa-github"></i>
+          </a>
+          
+          <a href="resume.pdf" 
+             title="Resume" 
+             target="_blank"
+             class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 
+                    flex items-center justify-center shadow-lg 
+                    hover:bg-indigo-500 hover:scale-110 
+                    transform transition duration-300">
+            <i class="fas fa-file-alt"></i>
           </a>
         </div>
 
         <!-- Contact Button -->
         <a href="#contact" 
-           class="mt-8 inline-block px-6 py-3 rounded-lg shadow-lg 
-                  transform transition duration-300 hover:scale-105"
-           :class="isDark ? 'bg-indigo-600/80 backdrop-blur-sm text-white hover:bg-indigo-500' : 
-                           'bg-indigo-500 text-white hover:bg-indigo-600'">
+           class="mt-8 inline-block px-6 py-3 bg-indigo-600/80 backdrop-blur-sm 
+                  text-white rounded-lg shadow-lg hover:bg-indigo-500 
+                  transform transition duration-300 hover:scale-105 
+                  animate-fadeIn [animation-delay:800ms]">
           Get in Touch
         </a>
       </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10"
-         :class="isDark ? 'text-white/70' : 'text-gray-600'">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 
+                animate-bounce text-white/70 cursor-pointer z-10">
       <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 </template>
 
 <script setup>
-import { useThemeStore } from '../stores/themeStore'
-import { storeToRefs } from 'pinia'
-
-const themeStore = useThemeStore()
-const { isDark } = storeToRefs(themeStore)
-
-const socialLinks = [
-  {
-    title: 'LinkedIn',
-    link: 'https://linkedin.com/in/yourusername',
-    icon: 'fab fa-linkedin-in'
-  },
-  {
-    title: 'Github',
-    link: 'https://github.com/yourusername',
-    icon: 'fab fa-github'
-  },
-  {
-    title: 'Resume',
-    link: 'resume.pdf',
-    icon: 'fas fa-file-alt'
-  }
-]
+// No script needed
 </script>
 
 <style scoped>
-/* Dark mode animations */
-@keyframes meteor {
-  0% {
-    transform: rotate(215deg) translateX(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(215deg) translateX(-500px);
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
     opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -152,17 +131,32 @@ const socialLinks = [
   }
 }
 
-/* Light mode animations */
-@keyframes float {
+@keyframes meteor {
   0% {
-    transform: translateX(-100%) translateY(0);
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
   }
   100% {
-    transform: translateX(100vw) translateY(0);
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
   }
 }
 
-/* Meteor styles */
+/* Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 2s infinite;
+}
+
+/* Meteor shower */
 .meteor-shower {
   position: absolute;
   inset: 0;
@@ -193,64 +187,14 @@ const socialLinks = [
   top: -1px;
 }
 
-/* Cloud styles */
-.clouds-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+/* Fade in animation classes */
+.animate-fadeIn {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
 }
 
-.cloud {
-  position: absolute;
-  top: var(--top);
-  left: -200px;
-  width: 200px;
-  height: 60px;
-  background: white;
-  border-radius: 50px;
-  opacity: 0.8;
-  transform: scale(var(--scale));
-  animation: float var(--duration) linear infinite;
-  animation-delay: var(--delay);
-}
-
-.cloud::before,
-.cloud::after {
-  content: '';
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-}
-
-.cloud::before {
-  width: 80px;
-  height: 80px;
-  top: -30px;
-  left: 30px;
-}
-
-.cloud::after {
-  width: 100px;
-  height: 100px;
-  top: -40px;
-  left: 90px;
-}
-
-/* Star styles */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: white;
-  border-radius: 50%;
-  opacity: 0.3;
-  animation: twinkle 2s infinite;
-}
-
-/* Ensure smooth transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+/* Optional: Add glow effect to profile image */
+.profile-glow {
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
 }
 </style>
