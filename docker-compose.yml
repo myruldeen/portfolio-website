@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  # Optional development service
+  dev:
+    image: node:18-alpine
+    command: npm run dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
