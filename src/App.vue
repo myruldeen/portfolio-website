@@ -9,6 +9,7 @@
     <ContactSection />
     <FooterSection />
     <BackToTopButton />
+    <PWAInstallPrompt />
   </div>
 </template>
 
@@ -22,4 +23,5 @@ import BusinessSection from './components/BusinessSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FooterSection from './components/FooterSection.vue'
 import BackToTopButton from './components/BackToTopButton.vue'
+import PWAInstallPrompt from './components/PWAInstallPrompt.vue'
 </script>
