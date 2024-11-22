@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex items-center">
-          <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Amirul__</h1>
+          <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400"> <a href="#hero">Amirul__</a></h1>
         </div>
 
         <!-- Desktop Menu -->
@@ -107,6 +107,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const menuItems = [
   { text: 'About', link: '#about' },
   { text: 'Projects', link: '#projects' },
+  { text: 'Skills', link: '#skills' },
+  { text: 'Services', link: '#business' },
   { text: 'Contact', link: '#contact' }
 ]
 

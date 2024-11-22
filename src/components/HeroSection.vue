@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 dark:from-black dark:to-gray-900">
+  <section id="hero" class="min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-700 dark:from-black dark:to-gray-900">
     <!-- Meteor Shower -->
     <div class="meteor-shower">
       <div v-for="n in 20" :key="n" 
@@ -31,7 +31,7 @@
         <div class="mb-6 relative inline-block">
           <div class="absolute inset-0 bg-indigo-500 rounded-full blur-md opacity-50"></div>
           <img 
-            src="https://via.placeholder.com/150" 
+            src="../assets/myself.png" 
             alt="Muhammad Amirul Rashideen"
             class="w-32 h-32 rounded-full relative z-10 border-4 border-white/30 
                    shadow-xl transform transition duration-300 
@@ -53,7 +53,7 @@
         <!-- Social Links -->
         <div class="mt-6 flex justify-center space-x-4 
                     animate-fadeIn [animation-delay:600ms]">
-          <a href="https://linkedin.com/in/yourusername" 
+          <a href="https://linkedin.com/in/muhd-amirul-rashideen-zaidi-65682015a/" 
              title="LinkedIn" 
              target="_blank"
              class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 
@@ -63,7 +63,7 @@
             <i class="fab fa-linkedin-in"></i>
           </a>
           
-          <a href="https://github.com/yourusername" 
+          <a href="https://github.com/myruldeen" 
              title="Github" 
              target="_blank"
              class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 
@@ -73,7 +73,7 @@
             <i class="fab fa-github"></i>
           </a>
           
-          <a href="resume.pdf" 
+          <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view" 
              title="Resume" 
              target="_blank"
              class="w-10 h-10 bg-white/10 backdrop-blur-sm text-white rounded-full 

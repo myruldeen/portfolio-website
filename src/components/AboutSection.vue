@@ -157,33 +157,36 @@ const experience = [
     icon: 'fas fa-laptop',
     roleIcon: 'fas fa-laptop',
     responsibilities: [
-      'Developed and maintained web applications using React and Node.js',
-      'Collaborated with cross-functional teams to design and implement new features',
-      'Improved application performance by optimizing front-end and back-end code'
+      'Support Infra team on daily task basis on client site at PAPAMY (Panasonic Appliances Air-Conditioning Malaysia Sdn Bhd) and Tasco Berhad.',
+      'Install and upgrade latest EDR, ApexOne agent and virus pattern.',
+      'Install and troubleshoot Microsoft O365 and Teams for common issues.',
+      'Setup and configure Zebra scanner and thermal printer for warehouse operation at Tasco Bhd.',
+      'Configure copier machine and install driver for desktop and laptop.',
+      'Maintain Infra hardware and software such as server, printer, PC and network appliance such as router, switch and AP.'
     ]
   },
   {
     period: 'August 2023 - November 2023',
-    role: 'IT Support Technician',
+    role: 'IT Support Technician (Intern)',
     company: 'Panasonic Manufacturing Malaysia Berhad',
     icon: 'fas fa-laptop',
     roleIcon: 'fas fa-laptop-code',
     responsibilities: [
-      'Worked on improving the UI of client websites using HTML, CSS, and JavaScript',
-      'Assisted in building responsive layouts and mobile-first designs',
-      'Contributed to weekly sprint meetings and code reviews'
+      'Support Infra team on daily task basis.',
+      'Maintain and upgrade existing Macro Enable Excel project with VBA and MSSQL.',
+      'Upgrade, support and maintain existing web application using VB.net and MSSQL.',
+      'Handle ad-hoc task automation using Powershell and VB.'
     ]
   },
   {
     period: 'August 2019 - November 2020',
-    role: 'Backend Developer Intern',
+    role: 'Backend Developer (Intern)',
     company: 'Grab Haulier Sdn Bhd',
     icon: 'fas fa-code',
     roleIcon: 'fas fa-code',
     responsibilities: [
-      'Worked on improving the UI of client websites using HTML, CSS, and JavaScript',
-      'Assisted in building responsive layouts and mobile-first designs',
-      'Contributed to weekly sprint meetings and code reviews'
+      'Develop, design and maintain pricelist microservices',
+      'Develop, design and maintain web automation.'
     ]
   }
 ]

@@ -74,8 +74,8 @@
 const projects = [
   {
     title: 'Smart Agriculture & Data Analytics',
-    description: 'A full-featured e-commerce platform with shopping cart, payment integration, and admin dashboard.',
-    image: 'https://placehold.co/600x400',
+    description: 'Monitor soil temperature, humidity and moisture in real-time',
+    image: '/projects/smart-agriculture/1.png',
     liveLink: '#',
     githubLink: 'https://github.com/myruldeen/smart-agriculture',
     technologies: [
@@ -99,8 +99,8 @@ const projects = [
   },
   {
     title: 'Mobile App Solar Monitoring',
-    description: 'A collaborative task management application with real-time updates and team features.',
-    image: 'https://placehold.co/600x400',
+    description: 'Monitor solar DC voltage, current, ambient, temperature & humidity in real-time',
+    image: '/projects/solar-monitoring/2.png',
     liveLink: '#',
     githubLink: 'https://github.com/myruldeen/solar-monitoring',
     technologies: [
@@ -124,8 +124,8 @@ const projects = [
   },
   {
     title: 'IoT Weather Station',
-    description: 'An IoT-based weather monitoring system with real-time data visualization.',
-    image: 'https://placehold.co/600x400',
+    description: 'Monitor weather using ESP32 and MQTT to display current value in real-time using Nodered and Grafana.',
+    image: '/projects/weather-monitoring/1.png',
     liveLink: 'https://nodered.denoodev.com/ui',
     githubLink: 'https://github.com/myruldeen/soilmas-noderedflow',
     technologies: [
