@@ -2,61 +2,71 @@
 import { Image } from 'astro:assets';
 import myselfImage from '../assets/myself.png';
 ---
-<section id="hero" class="min-h-screen relative flex items-center justify-center bg-neutral-950 transition-colors duration-200">
-  <!-- Content -->
-  <div class="container mx-auto px-4 z-10 text-center animate-fade-in-up">
-    <!-- Profile Image -->
-    <div class="mb-8 relative inline-block">
-      <Image 
-        src={myselfImage} 
-        alt="Muhammad Amirul Rashideen"
-        class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500 border border-neutral-800"
-      />
-    </div>
+<section id="hero" class="min-h-screen relative flex items-center bg-neutral-950 transition-colors duration-200 pt-32 pb-20">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl z-10 animate-fade-in-up">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Text Content -->
+      <div>
+        <!-- Availability Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-neutral-800 bg-neutral-900/50 text-sm text-neutral-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          Available for freelance &amp; IT projects
+        </div>
 
-    <!-- Name and Title -->
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-100 mb-6">
-      Muhammad Amirul
-    </h2>
+        <!-- Headline -->
+        <h1 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-neutral-100 mb-6 leading-[1.1]">
+          I build IoT, software, and hardware solutions.
+        </h1>
 
-    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 font-light">
-      IT enthusiast specializing in IoT, Software, and Hardware. Building clean, efficient solutions for real-world problems.
-    </p>
+        <p class="text-lg text-neutral-400 max-w-xl mb-8 font-light">
+          IT enthusiast specializing in IoT, Software, and Hardware. Building clean, efficient solutions for real-world problems.
+        </p>
 
-    <!-- Social Links & Contact -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-      <div class="flex space-x-6">
-        <a href="https://linkedin.com/in/muhd-amirul-rashideen-zaidi-65682015a/"
-           title="LinkedIn"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
-          <i class="fab fa-linkedin-in text-xl"></i>
-        </a>
+        <!-- Actions -->
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+          <a href="#contact"
+             class="inline-flex items-center px-6 py-2.5 text-sm font-medium bg-emerald-500 text-neutral-950 rounded-full hover:bg-emerald-400 transition duration-300">
+            Get in Touch &rarr;
+          </a>
+          <a href="#projects"
+             class="inline-flex items-center px-6 py-2.5 text-sm font-medium border border-neutral-800 rounded-full text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition duration-300">
+            View my Work
+          </a>
+          <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-sm font-medium text-neutral-400 hover:text-neutral-200 underline underline-offset-4 decoration-neutral-700 transition duration-300">
+            Résumé (PDF)
+          </a>
+        </div>
 
-        <a href="https://github.com/myruldeen"
-           title="Github"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
-          <i class="fab fa-github text-xl"></i>
-        </a>
-
-        <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view"
-           title="Resume"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
-          <i class="fas fa-file-alt text-xl"></i>
-        </a>
+        <!-- Meta -->
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-500">
+          <span>IT Support Analyst</span>
+          <span class="text-neutral-700">&bull;</span>
+          <span>Based in Malaysia</span>
+          <span class="text-neutral-700">&bull;</span>
+          <span>Building since 2019</span>
+        </div>
       </div>
 
-      <span class="hidden sm:inline-block w-px h-6 bg-neutral-800"></span>
+      <!-- Photo -->
+      <div class="relative mx-auto lg:mx-0 max-w-xs sm:max-w-sm w-full">
+        <div class="rounded-2xl overflow-hidden border border-neutral-800">
+          <Image
+            src={myselfImage}
+            alt="Muhammad Amirul Rashideen"
+            class="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+          />
+        </div>
 
-      <a href="#contact" 
-         class="inline-flex items-center px-6 py-2.5 text-sm font-medium border border-neutral-800 rounded-full text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition duration-300">
-        Get in Touch
-      </a>
+        <!-- Floating Stat Card -->
+        <div class="absolute -bottom-6 -left-6 sm:-left-10 max-w-[15rem] bg-neutral-900 border border-neutral-800 rounded-xl p-4 shadow-lg">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-500 mb-1">Currently Working</p>
+          <p class="text-sm font-semibold text-neutral-100 mb-1">Technical Support Analyst</p>
+          <p class="text-xs text-neutral-500">JOS Malaysia Sdn Bhd &middot; since Feb 2024</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -45,21 +45,80 @@ const projects = [
     ]
   }
 ];
+
+const [featured, ...rest] = projects;
 ---
 <section id="projects" class="py-24 bg-neutral-950">
   <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
     <div class="mb-16">
-      <h2 class="text-3xl font-bold tracking-tight text-neutral-200 mb-4">
-        Selected Projects
+      <p class="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3">Selected Work</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        Things I've built for real problems
       </h2>
       <p class="text-lg text-neutral-400 max-w-2xl">
         A showcase of systems and applications I've built, focusing on IoT and real-time monitoring.
       </p>
     </div>
 
-    <!-- Projects Grid -->
+    <!-- Featured Project -->
+    <div class="group flex flex-col md:flex-row bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden hover:border-neutral-700 transition duration-300 mb-8">
+      <div class="relative md:w-2/5 h-56 md:h-80 overflow-hidden bg-neutral-900 border-b md:border-b-0 md:border-r border-neutral-800">
+        <!-- Status Ribbon -->
+        <div class="absolute top-0 left-0 w-28 h-28 overflow-hidden pointer-events-none z-20">
+          <span class="absolute top-[18px] left-[-32px] w-[140px] -rotate-45 bg-emerald-500 text-center text-[10px] font-bold uppercase tracking-wider text-neutral-950 py-1">
+            {featured.status}
+          </span>
+        </div>
+        <img
+          src={featured.image}
+          alt={featured.title}
+          class="w-full h-full object-cover transition duration-500 group-hover:scale-105 filter grayscale hover:grayscale-0"
+        />
+        <!-- Overlay with links -->
+        <div class="absolute inset-0 bg-neutral-950/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4">
+          <a href={featured.liveLink}
+             target="_blank"
+             rel="noopener noreferrer"
+             class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
+             title="View Live">
+            <i class="fas fa-external-link-alt text-sm"></i>
+          </a>
+          <a href={featured.githubLink}
+             target="_blank"
+             rel="noopener noreferrer"
+             class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
+             title="View Code">
+            <i class="fab fa-github text-sm"></i>
+          </a>
+        </div>
+      </div>
+      <div class="p-8 flex-grow flex flex-col justify-center">
+        <p class="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-2">Featured Project</p>
+        <h3 class="font-display text-2xl font-bold text-neutral-100 mb-3">
+          {featured.title}
+        </h3>
+        <p class="text-sm text-neutral-400 mb-6 leading-relaxed max-w-lg">
+          {featured.description}
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {featured.technologies.map((tech) => (
+            <span class={`px-2.5 py-1 text-xs font-medium rounded-md ${tech.class}`}>
+              {tech.name}
+            </span>
+          ))}
+        </div>
+        <a href={featured.liveLink !== '#' ? featured.liveLink : featured.githubLink}
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-400 transition duration-300 w-fit">
+          View Project &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Remaining Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {projects.map((project) => (
+      {rest.map((project) => (
         <div class="group flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden hover:border-neutral-700 transition duration-300">
 
           <!-- Project Image -->
@@ -71,7 +130,7 @@ const projects = [
               </span>
             </div>
             <img
-              src={project.image} 
+              src={project.image}
               alt={project.title}
               class="w-full h-full object-cover transition duration-500 group-hover:scale-105 filter grayscale hover:grayscale-0"
             />
@@ -96,20 +155,26 @@ const projects = [
 
           <!-- Project Info -->
           <div class="p-6 flex-grow flex flex-col">
-            <h3 class="text-xl font-semibold text-neutral-200 mb-3">
+            <h3 class="font-display text-xl font-bold text-neutral-100 mb-3">
               {project.title}
             </h3>
             <p class="text-sm text-neutral-400 mb-6 flex-grow leading-relaxed">
               {project.description}
             </p>
             <!-- Technologies Used -->
-            <div class="flex flex-wrap gap-2 mt-auto">
+            <div class="flex flex-wrap gap-2 mb-4">
               {project.technologies.map((tech) => (
                 <span class={`px-2.5 py-1 text-xs font-medium rounded-md ${tech.class}`}>
                   {tech.name}
                 </span>
               ))}
             </div>
+            <a href={project.liveLink !== '#' ? project.liveLink : project.githubLink}
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-400 transition duration-300 w-fit">
+              View Project &rarr;
+            </a>
           </div>
         </div>
       ))}

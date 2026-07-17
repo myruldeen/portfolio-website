@@ -2,51 +2,53 @@
 const services = [
   {
     title: 'Web Development',
-    icon: 'fas fa-laptop-code',
     description: 'Custom websites tailored to your business needs. From e-commerce platforms to personal blogs, I offer responsive and scalable solutions.'
   },
   {
     title: 'Networking & Infrastructure',
-    icon: 'fas fa-server',
     description: 'Designing, deploying, and maintaining robust network and infrastructure systems to ensure seamless connectivity, security, and scalability.'
   },
   {
     title: 'Laptop Repairing',
-    icon: 'fas fa-laptop',
     description: 'Providing expert repair and maintenance services for all laptop brands, including hardware fixes, software troubleshooting, and performance optimization.'
   },
   {
     title: 'IoT Development',
-    icon: 'fas fa-microchip',
     description: 'Designing and developing custom Internet of Things (IoT) solutions to connect and automate devices, enabling real-time data collection and analysis.'
   }
 ];
 ---
 <section id="business" class="py-24 bg-neutral-950 transition-colors duration-200">
   <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
-    <div class="mb-16 text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-neutral-200 mb-4">
-        Services
+    <div class="mb-16">
+      <p class="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3">What I Do</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        Ways I can help your business
       </h2>
-      <p class="text-lg text-neutral-400 max-w-2xl mx-auto">
-        Here are some of the professional services I offer.
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        Whether you need a website, a network set up right, or a device fixed, I handle the whole thing from start to finish.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service) => (
-        <div class="group bg-neutral-950 rounded-xl p-8 border border-neutral-800 hover:border-neutral-700 transition duration-300 flex flex-col text-center">
-          <div class="text-3xl text-neutral-500 mb-6 transition duration-300 group-hover:text-neutral-300">
-            <i class={service.icon}></i>
-          </div>
-          <h3 class="text-lg font-semibold text-neutral-200 mb-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <div class="group bg-neutral-950 rounded-xl p-6 border border-neutral-800 hover:border-neutral-700 transition duration-300 flex flex-col">
+          <span class="inline-flex w-fit px-2.5 py-1 mb-6 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-bold tracking-wide">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 class="text-lg font-semibold text-neutral-100 mb-3">
             {service.title}
           </h3>
-          <p class="text-sm text-neutral-400 leading-relaxed flex-grow">
+          <p class="text-sm text-neutral-400 leading-relaxed">
             {service.description}
           </p>
         </div>
       ))}
     </div>
+
+    <p class="mt-8 text-sm text-neutral-400">
+      Just need advice or a second opinion?
+      <a href="#contact" class="text-emerald-500 hover:text-emerald-400 font-medium transition duration-300">Let's talk &rarr;</a>
+    </p>
   </div>
 </section>

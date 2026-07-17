@@ -5,13 +5,14 @@
         <div class="px-6 lg:px-8">
           <div class="flex items-center justify-between h-14">
           <!-- Logo -->
-          <div class="flex items-center">
-            <a href="#hero" class="text-lg font-bold tracking-tight text-neutral-100 hover:text-emerald-500 transition-colors">Amirul.</a>
-          </div>
+          <a href="#hero" class="flex items-center gap-2.5 group">
+            <span class="w-8 h-8 flex items-center justify-center rounded-lg bg-emerald-500 text-neutral-950 font-display font-bold text-sm">AR</span>
+            <span class="text-lg font-display font-bold tracking-tight text-neutral-100 group-hover:text-emerald-500 transition-colors">Amirul.</span>
+          </a>
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-8">
-            <a v-for="item in menuItems" 
+            <a v-for="item in menuItems"
                :key="item.link"
                :href="item.link"
                class="text-sm font-medium text-neutral-400 hover:text-neutral-100 transition duration-300">
@@ -19,10 +20,14 @@
             </a>
           </div>
 
-          <!-- Mobile Menu Button -->
-          <div class="md:hidden flex items-center">
-            <button @click="isMenuOpen = !isMenuOpen" 
-                    class="text-neutral-400 hover:text-neutral-100 transition duration-300 p-2"
+          <!-- CTA + Mobile Menu Button -->
+          <div class="flex items-center gap-2">
+            <a href="#contact"
+               class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium bg-emerald-500 text-neutral-950 rounded-full hover:bg-emerald-400 transition duration-300">
+              Get in Touch
+            </a>
+            <button @click="isMenuOpen = !isMenuOpen"
+                    class="md:hidden text-neutral-400 hover:text-neutral-100 transition duration-300 p-2"
                     aria-label="Toggle menu">
               <i :class="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'" class="text-xl"></i>
             </button>
