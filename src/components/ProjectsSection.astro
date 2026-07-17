@@ -68,14 +68,16 @@ const projects = [
             />
             <!-- Overlay with links -->
             <div class="absolute inset-0 bg-neutral-950/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4">
-              <a href={project.liveLink} 
+              <a href={project.liveLink}
                  target="_blank"
+                 rel="noopener noreferrer"
                  class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
                  title="View Live">
                 <i class="fas fa-external-link-alt text-sm"></i>
               </a>
-              <a href={project.githubLink} 
+              <a href={project.githubLink}
                  target="_blank"
+                 rel="noopener noreferrer"
                  class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
                  title="View Code">
                 <i class="fab fa-github text-sm"></i>

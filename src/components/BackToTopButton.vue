@@ -60,7 +60,7 @@
   const progressPercent = computed(() => {
     if (typeof window === 'undefined') return 0
     const docHeight = document.documentElement.scrollHeight - window.innerHeight
-    return docHeight > 0 ? ((window.scrollY / docHeight) * 100).toFixed(0) : 0
+    return docHeight > 0 ? ((scrollProgress.value / docHeight) * 100).toFixed(0) : 0
   })
   
   const handleScroll = () => {
