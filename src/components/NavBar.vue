@@ -1,7 +1,7 @@
 <template>
   <div class="fixed top-4 left-0 right-0 z-50">
     <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
-      <nav class="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-full transition-colors duration-200 shadow-sm">
+      <nav class="bg-neutral-900/80 backdrop-blur-md border border-neutral-800 rounded-xl transition-colors duration-200 shadow-sm">
         <div class="px-6 lg:px-8">
           <div class="flex items-center justify-between h-14">
           <!-- Logo -->
@@ -23,7 +23,7 @@
           <!-- CTA + Mobile Menu Button -->
           <div class="flex items-center gap-2">
             <a href="#contact"
-               class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium bg-emerald-500 text-neutral-950 rounded-full hover:bg-emerald-400 transition duration-300">
+               class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium bg-emerald-500 text-neutral-950 rounded-xl hover:bg-emerald-400 transition duration-300">
               Get in Touch
             </a>
             <button @click="isMenuOpen = !isMenuOpen"
