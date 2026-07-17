@@ -2,18 +2,22 @@
 const services = [
   {
     title: 'Web Development',
+    icon: 'fas fa-laptop-code',
     description: 'Custom websites tailored to your business needs. From e-commerce platforms to personal blogs, I offer responsive and scalable solutions.'
   },
   {
     title: 'Networking & Infrastructure',
+    icon: 'fas fa-server',
     description: 'Designing, deploying, and maintaining robust network and infrastructure systems to ensure seamless connectivity, security, and scalability.'
   },
   {
     title: 'Laptop Repairing',
+    icon: 'fas fa-laptop',
     description: 'Providing expert repair and maintenance services for all laptop brands, including hardware fixes, software troubleshooting, and performance optimization.'
   },
   {
     title: 'IoT Development',
+    icon: 'fas fa-microchip',
     description: 'Designing and developing custom Internet of Things (IoT) solutions to connect and automate devices, enabling real-time data collection and analysis.'
   }
 ];
@@ -32,14 +36,17 @@ const services = [
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service, index) => (
-        <div class="group bg-neutral-950 rounded-xl p-6 border border-neutral-800 hover:border-neutral-700 transition duration-300 flex flex-col">
-          <span class="inline-flex w-fit px-2.5 py-1 mb-6 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-bold tracking-wide">
+        <div class="group relative overflow-hidden bg-neutral-950 rounded-xl p-6 border border-neutral-800 hover:border-neutral-700 transition duration-300 flex flex-col">
+          <!-- Background watermark icon -->
+          <i class={`${service.icon} absolute -bottom-6 -right-6 text-[7rem] leading-none text-neutral-900 group-hover:text-neutral-800/80 transition-colors duration-500 pointer-events-none select-none`} aria-hidden="true"></i>
+
+          <span class="relative inline-flex w-fit px-2.5 py-1 mb-6 rounded-md bg-emerald-500/10 text-emerald-500 text-xs font-bold tracking-wide">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 class="text-lg font-semibold text-neutral-100 mb-3">
+          <h3 class="relative text-lg font-semibold text-neutral-100 mb-3">
             {service.title}
           </h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
+          <p class="relative text-sm text-neutral-400 leading-relaxed">
             {service.description}
           </p>
         </div>
