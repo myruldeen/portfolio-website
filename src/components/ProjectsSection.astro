@@ -60,18 +60,16 @@ const projects = [
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {projects.map((project) => (
-        <div class="group relative flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 hover:border-neutral-700 transition duration-300">
-
-          <!-- Status Ribbon -->
-          <div class="absolute top-4 -left-2 z-20 drop-shadow-md">
-            <div class="absolute left-0 top-1/2 w-2.5 h-2.5 -translate-y-1/2 -translate-x-px bg-emerald-800 rotate-45 -z-10"></div>
-            <div class="relative bg-emerald-500 text-neutral-950 text-xs font-bold uppercase tracking-wide pl-5 pr-4 py-1.5 [clip-path:polygon(0_50%,10px_0,100%_0,100%_100%,10px_100%)]">
-              {project.status}
-            </div>
-          </div>
+        <div class="group flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden hover:border-neutral-700 transition duration-300">
 
           <!-- Project Image -->
-          <div class="relative h-56 rounded-t-xl overflow-hidden bg-neutral-900 border-b border-neutral-800">
+          <div class="relative h-56 overflow-hidden bg-neutral-900 border-b border-neutral-800">
+            <!-- Status Ribbon -->
+            <div class="absolute top-0 left-0 w-28 h-28 overflow-hidden pointer-events-none z-20">
+              <span class="absolute top-[18px] left-[-32px] w-[140px] -rotate-45 bg-emerald-500 text-center text-[10px] font-bold uppercase tracking-wider text-neutral-950 py-1">
+                {project.status}
+              </span>
+            </div>
             <img
               src={project.image} 
               alt={project.title}
