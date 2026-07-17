@@ -11,19 +11,18 @@
         v-show="showButton"
         @click="scrollToTop"
         class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full 
-               bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400
-               shadow-lg hover:shadow-xl 
+               bg-neutral-900 text-neutral-400
                flex items-center justify-center
                transform transition-all duration-300 
-               hover:scale-110 hover:-translate-y-1
-               focus:outline-none focus:ring-2 focus:ring-indigo-500
-               group border border-indigo-100 dark:border-gray-700">
+               hover:text-emerald-500 hover:border-neutral-700
+               focus:outline-none focus:ring-2 focus:ring-neutral-500
+               group border border-neutral-800">
         
         <!-- Progress Circle -->
         <svg class="absolute w-full h-full -rotate-90">
           <circle
             :stroke-dasharray="`${progressPercent} 100`"
-            class="text-indigo-600 dark:text-indigo-400"
+            class="text-emerald-500"
             stroke-width="2"
             stroke="currentColor"
             fill="transparent"
@@ -39,7 +38,7 @@
         
         <!-- Tooltip -->
         <span class="absolute -top-8 left-1/2 -translate-x-1/2 
-                     bg-gray-800 dark:bg-gray-700 text-white 
+                     bg-neutral-800 text-neutral-200 
                      px-2 py-1 rounded text-xs
                      opacity-0 group-hover:opacity-100 
                      transition-opacity duration-300
@@ -59,8 +58,9 @@
   
   // Calculate scroll progress percentage
   const progressPercent = computed(() => {
+    if (typeof window === 'undefined') return 0
     const docHeight = document.documentElement.scrollHeight - window.innerHeight
-    return ((window.scrollY / docHeight) * 100).toFixed(0)
+    return docHeight > 0 ? ((window.scrollY / docHeight) * 100).toFixed(0) : 0
   })
   
   const handleScroll = () => {

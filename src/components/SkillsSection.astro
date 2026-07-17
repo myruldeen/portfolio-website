@@ -1,0 +1,67 @@
+---
+const skillCategories = [
+  {
+    title: 'Frontend Development',
+    icon: 'fas fa-code',
+    skills: [
+      { name: 'HTML', icon: 'fab fa-html5' },
+      { name: 'CSS', icon: 'fab fa-css3-alt' },
+      { name: 'JavaScript', icon: 'fab fa-js' },
+      { name: 'React', icon: 'fab fa-react' }
+    ]
+  },
+  {
+    title: 'Backend Development',
+    icon: 'fas fa-server',
+    skills: [
+      { name: 'Node.js', icon: 'fab fa-node-js' },
+      { name: 'Express.js', icon: 'fas fa-cogs' },
+      { name: 'MySQL', icon: 'fas fa-database' },
+      { name: 'MongoDB', icon: 'fas fa-database' }
+    ]
+  },
+  {
+    title: 'Other Tools',
+    icon: 'fas fa-tools',
+    skills: [
+      { name: 'Git', icon: 'fab fa-git-alt' },
+      { name: 'GitHub', icon: 'fab fa-github' },
+      { name: 'Version Control', icon: 'fas fa-code-branch' },
+      { name: 'Cloud Services', icon: 'fas fa-cloud' }
+    ]
+  }
+];
+---
+<section id="skills" class="py-24 bg-neutral-950 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-neutral-200 mb-4">
+        Skills & Technologies
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl mx-auto">
+        Here are some of the technologies and tools I work with regularly.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {skillCategories.map((category) => (
+        <div class="bg-neutral-950 rounded-xl p-8 border border-neutral-800 hover:border-neutral-700 transition duration-300">
+          <div class="text-2xl text-neutral-500 mb-6 flex items-center justify-center">
+            <i class={category.icon}></i>
+          </div>
+          <h3 class="text-lg font-semibold text-center text-neutral-200 mb-6">
+            {category.title}
+          </h3>
+          <ul class="space-y-4">
+            {category.skills.map((skill) => (
+              <li class="text-neutral-400 flex items-center justify-center space-x-3 group transition-colors duration-200 hover:text-neutral-200">
+                <i class={`${skill.icon} text-neutral-500 group-hover:text-neutral-300 transition-colors`}></i>
+                <span class="text-sm font-medium">{skill.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

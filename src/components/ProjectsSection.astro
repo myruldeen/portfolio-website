@@ -1,0 +1,107 @@
+---
+// Projects data
+const projects = [
+  {
+    title: 'Smart Agriculture & Data Analytics',
+    description: 'Monitor soil temperature, humidity and moisture in real-time',
+    image: '/projects/smart-agriculture/1.png',
+    liveLink: '#',
+    githubLink: 'https://github.com/myruldeen/smart-agriculture',
+    technologies: [
+      { name: 'Ionic', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Angular', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'MongoDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
+    ]
+  },
+  {
+    title: 'Mobile App Solar Monitoring',
+    description: 'Monitor solar DC voltage, current, ambient, temperature & humidity in real-time',
+    image: '/projects/solar-monitoring/2.png',
+    liveLink: '#',
+    githubLink: 'https://github.com/myruldeen/solar-monitoring',
+    technologies: [
+      { name: 'Ionic', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Angular', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'MongoDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
+    ]
+  },
+  {
+    title: 'IoT Weather Station',
+    description: 'Monitor weather using ESP32 and MQTT to display current value in real-time using Nodered and Grafana.',
+    image: '/projects/weather-monitoring/1.png',
+    liveLink: 'https://nodered.denoodev.com/ui',
+    githubLink: 'https://github.com/myruldeen/soilmas-noderedflow',
+    technologies: [
+      { name: 'Nodered', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Grafana', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'InfluxDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Docker', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
+    ]
+  }
+];
+---
+<section id="projects" class="py-24 bg-neutral-950">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold tracking-tight text-neutral-200 mb-4">
+        Selected Projects
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        A showcase of systems and applications I've built, focusing on IoT and real-time monitoring.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map((project) => (
+        <div class="group flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 overflow-hidden hover:border-neutral-700 transition duration-300">
+          
+          <!-- Project Image -->
+          <div class="relative h-56 overflow-hidden bg-neutral-900 border-b border-neutral-800">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-105 filter grayscale hover:grayscale-0"
+            />
+            <!-- Overlay with links -->
+            <div class="absolute inset-0 bg-neutral-950/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center gap-4">
+              <a href={project.liveLink} 
+                 target="_blank"
+                 class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
+                 title="View Live">
+                <i class="fas fa-external-link-alt text-sm"></i>
+              </a>
+              <a href={project.githubLink} 
+                 target="_blank"
+                 class="w-10 h-10 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-neutral-200 rounded-full hover:bg-neutral-800 hover:text-emerald-500 transition duration-300"
+                 title="View Code">
+                <i class="fab fa-github text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project Info -->
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-semibold text-neutral-200 mb-3">
+              {project.title}
+            </h3>
+            <p class="text-sm text-neutral-400 mb-6 flex-grow leading-relaxed">
+              {project.description}
+            </p>
+            <!-- Technologies Used -->
+            <div class="flex flex-wrap gap-2 mt-auto">
+              {project.technologies.map((tech) => (
+                <span class={`px-2.5 py-1 text-xs font-medium rounded-md ${tech.class}`}>
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import myselfImage from '../assets/myself.png';
+---
+<section id="hero" class="min-h-screen relative flex items-center justify-center bg-neutral-950 transition-colors duration-200">
+  <!-- Content -->
+  <div class="container mx-auto px-4 z-10 text-center animate-fade-in-up">
+    <!-- Profile Image -->
+    <div class="mb-8 relative inline-block">
+      <Image 
+        src={myselfImage} 
+        alt="Muhammad Amirul Rashideen"
+        class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-500 border border-neutral-800"
+      />
+    </div>
+
+    <!-- Name and Title -->
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-100 mb-6">
+      Muhammad Amirul
+    </h2>
+
+    <p class="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-10 font-light">
+      IT enthusiast specializing in IoT, Software, and Hardware. Building clean, efficient solutions for real-world problems.
+    </p>
+
+    <!-- Social Links & Contact -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <div class="flex space-x-6">
+        <a href="https://linkedin.com/in/muhd-amirul-rashideen-zaidi-65682015a/" 
+           title="LinkedIn" 
+           target="_blank"
+           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
+          <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
+        
+        <a href="https://github.com/myruldeen" 
+           title="Github" 
+           target="_blank"
+           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        
+        <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view" 
+           title="Resume" 
+           target="_blank"
+           class="text-neutral-500 hover:text-neutral-100 hover:scale-110 transition duration-300">
+          <i class="fas fa-file-alt text-xl"></i>
+        </a>
+      </div>
+
+      <span class="hidden sm:inline-block w-px h-6 bg-neutral-800"></span>
+
+      <a href="#contact" 
+         class="inline-flex items-center px-6 py-2.5 text-sm font-medium border border-neutral-800 rounded-full text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition duration-300">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+</style>

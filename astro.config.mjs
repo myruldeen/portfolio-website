@@ -1,18 +1,21 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from 'astro/config';
+import vue from '@astrojs/vue';
+import tailwind from '@astrojs/tailwind';
+import astroPwa from '@vite-pwa/astro';
 
+// https://astro.build/config
 export default defineConfig({
-  plugins: [
+  integrations: [
     vue(),
-    VitePWA({
+    tailwind(),
+    astroPwa({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'Your Portfolio',
         short_name: 'Portfolio',
         description: 'Your Personal Portfolio Website',
-        theme_color: '#4f46e5', // Indigo-600 color
+        theme_color: '#4f46e5',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -30,11 +33,8 @@ export default defineConfig({
             type: 'image/png',
             purpose: 'any maskable'
           }
-        ],
-        start_url: '/',
-        display: 'standalone',
-        background_color: '#ffffff'
+        ]
       }
     })
   ]
-})
+});
