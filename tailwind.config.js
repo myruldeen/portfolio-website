@@ -9,8 +9,6 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Outfit', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
-        body: ['Roboto', 'sans-serif'],
       },
     },
   },

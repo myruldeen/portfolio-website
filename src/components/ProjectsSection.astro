@@ -9,10 +9,10 @@ const projects = [
     liveLink: '#',
     githubLink: 'https://github.com/myruldeen/smart-agriculture',
     technologies: [
-      { name: 'Ionic', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Angular', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Node.js', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'MongoDB', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' }
+      { name: 'Ionic', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Angular', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'MongoDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
     ]
   },
   {
@@ -23,10 +23,10 @@ const projects = [
     liveLink: '#',
     githubLink: 'https://github.com/myruldeen/solar-monitoring',
     technologies: [
-      { name: 'Ionic', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Angular', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Node.js', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'MongoDB', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' }
+      { name: 'Ionic', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Angular', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'MongoDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
     ]
   },
   {
@@ -37,11 +37,11 @@ const projects = [
     liveLink: 'https://nodered.denoodev.com/ui',
     githubLink: 'https://github.com/myruldeen/soilmas-noderedflow',
     technologies: [
-      { name: 'Nodered', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Grafana', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'InfluxDB', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Node.js', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' },
-      { name: 'Docker', class: 'bg-neutral-100 text-neutral-600 border border-neutral-200' }
+      { name: 'Nodered', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Grafana', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'InfluxDB', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Node.js', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' },
+      { name: 'Docker', class: 'bg-neutral-900 text-neutral-400 border border-neutral-800' }
     ]
   }
 ];
@@ -60,7 +60,7 @@ const projects = [
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {projects.map((project) => (
-        <div class="group relative flex flex-col bg-white rounded-2xl shadow-[4px_4px_15px_rgba(0,0,0,0.15)] hover:shadow-[6px_6px_20px_rgba(0,0,0,0.2)] transition duration-300">
+        <div class="group relative flex flex-col bg-neutral-950 rounded-xl border border-neutral-800 hover:border-neutral-700 transition duration-300">
 
           <!-- Status Ribbon -->
           <div class="absolute top-4 -left-2 z-20 drop-shadow-md">
@@ -71,7 +71,7 @@ const projects = [
           </div>
 
           <!-- Project Image -->
-          <div class="relative h-56 rounded-t-2xl overflow-hidden bg-neutral-100 border-b border-neutral-200">
+          <div class="relative h-56 rounded-t-xl overflow-hidden bg-neutral-900 border-b border-neutral-800">
             <img
               src={project.image} 
               alt={project.title}
@@ -98,10 +98,10 @@ const projects = [
 
           <!-- Project Info -->
           <div class="p-6 flex-grow flex flex-col">
-            <h3 class="text-xl font-bold font-serif text-neutral-900 mb-3">
+            <h3 class="text-xl font-semibold text-neutral-200 mb-3">
               {project.title}
             </h3>
-            <p class="text-sm font-body text-[#434343] mb-6 flex-grow leading-relaxed">
+            <p class="text-sm text-neutral-400 mb-6 flex-grow leading-relaxed">
               {project.description}
             </p>
             <!-- Technologies Used -->
