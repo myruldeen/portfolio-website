@@ -1,14 +1,6 @@
-# portfolio-website
+# Portfolio Website
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+Personal portfolio for Muhammad Amirul — an IT Support Analyst building IoT, software, and hardware solutions. Built with [Astro](https://astro.build), with a couple of interactive islands (nav, back-to-top button, PWA install prompt) powered by Vue, styled with Tailwind CSS, and installable as a PWA.
 
 ## Project Setup
 
@@ -16,20 +8,31 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Develop (with hot reload)
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Build for production
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Preview the production build locally
+
+```sh
+npm run preview
+```
+
+### Lint / format
 
 ```sh
 npm run lint
+npm run format
 ```
+
+## Deployment
+
+A `Dockerfile` and `docker-compose.yml` are included: the `portfolio` service builds the static site and serves it via nginx (see `nginx.conf`); the `dev` service runs `astro dev` in a container for local development.
