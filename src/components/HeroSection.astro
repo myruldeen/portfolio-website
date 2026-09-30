@@ -1,5 +1,6 @@
 ---
-import myselfPixel from '../assets/myself-pixel.png';
+import { Image } from 'astro:assets';
+import myselfImage from '../assets/myself-2.png';
 import { site } from '../data/site.js';
 
 const promises = [
@@ -51,12 +52,12 @@ const promises = [
 
       <div class="relative mx-auto lg:mx-0 max-w-sm lg:max-w-none w-full">
         <div class="rounded-2xl overflow-hidden border border-neutral-800 aspect-[4/5]">
-          <img
-            src={myselfPixel.src}
+          <Image
+            src={myselfImage}
             alt={site.owner}
-            width={myselfPixel.width}
-            height={myselfPixel.height}
-            class="pixelated w-full h-full object-cover"
+            widths={[384, 576, 768, 1180]}
+            sizes="(min-width: 1024px) 576px, (min-width: 640px) 384px, 100vw"
+            class="w-full h-full object-cover"
           />
         </div>
 
@@ -83,9 +84,5 @@ const promises = [
   }
   .animate-fade-in-up {
     animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  .pixelated {
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
   }
 </style>

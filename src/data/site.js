@@ -3,6 +3,7 @@ export const site = {
   shortName: 'deno',
   owner: 'Muhammad Amirul Rashideen',
   role: 'Technical Support Analyst',
+  ssm: 'AS0513321-M',
   tagline: 'Apps & websites built to actually work',
   description:
     'deno solution builds custom websites, web apps and mobile apps for businesses that need something reliable, fast and easy to use.',
