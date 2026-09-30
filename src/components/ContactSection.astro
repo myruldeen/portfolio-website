@@ -1,50 +1,221 @@
 ---
+import { site } from '../data/site.js';
+
+const budgets = [
+  'Under RM 5,000',
+  'RM 5,000 - 15,000',
+  'RM 15,000 - 40,000',
+  'RM 40,000+',
+  'Not sure yet'
+];
+
+const timelines = ['ASAP', 'Within a month', '1 - 3 months', 'Just exploring'];
+
+const field =
+  'w-full px-4 py-2.5 text-sm bg-neutral-950 border border-neutral-800 rounded-xl text-neutral-100 placeholder:text-neutral-600 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-500/60 transition duration-300';
+const labelClass = 'block text-xs font-medium text-neutral-400 mb-2';
 ---
+
 <section id="contact" class="py-24 bg-neutral-950 transition-colors duration-200">
   <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
-    <div class="relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/60 px-6 sm:px-12 py-16 text-center">
-      <!-- Glow -->
-      <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full bg-emerald-500/10 blur-3xl"></div>
+    <div class="relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900/60 px-6 sm:px-12 py-14">
+      <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full bg-brand-500/15 blur-3xl"></div>
 
-      <div class="relative">
-        <p class="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-4">Let's Work Together</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-neutral-100 mb-6 max-w-2xl mx-auto">
-          Have a project in mind? Let's make it happen.
-        </h2>
-        <p class="text-lg text-neutral-400 max-w-xl mx-auto mb-10 leading-relaxed">
-          Available for freelance &amp; IT projects. Reach out and tell me what you want to build, or send an email.
-        </p>
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5">
+          <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-4">Get Started</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-neutral-100 mb-4">
+            Tell me what you need built
+          </h2>
+          <p class="text-base text-neutral-400 leading-relaxed mb-8">
+            The more detail you give, the more accurate your quote will be. I reply to
+            every message within one working day.
+          </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
-          <a href="mailto:myruldeen@gmail.com"
-             class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border border-neutral-700 rounded-xl text-neutral-200 hover:bg-neutral-800 transition duration-300">
-            <i class="fas fa-envelope"></i> myruldeen@gmail.com
-          </a>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start text-sm text-neutral-400">
+              <i class="fas fa-circle-check text-brand-300 text-xs mt-1 mr-3" aria-hidden="true"></i>
+              Free scoping call, no obligation
+            </li>
+            <li class="flex items-start text-sm text-neutral-400">
+              <i class="fas fa-circle-check text-brand-300 text-xs mt-1 mr-3" aria-hidden="true"></i>
+              Fixed quote before any work begins
+            </li>
+            <li class="flex items-start text-sm text-neutral-400">
+              <i class="fas fa-circle-check text-brand-300 text-xs mt-1 mr-3" aria-hidden="true"></i>
+              You own the code, domains and hosting
+            </li>
+          </ul>
+
+          <div class="space-y-3 pt-6 border-t border-neutral-800">
+            <a
+              href={`mailto:${site.email}`}
+              class="flex items-center gap-3 text-sm text-neutral-300 hover:text-brand-200 transition duration-300"
+            >
+              <i class="fas fa-envelope w-4 text-neutral-500" aria-hidden="true"></i>
+              {site.email}
+            </a>
+            <a
+              href={site.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+              class="flex items-center gap-3 text-sm text-neutral-300 hover:text-brand-200 transition duration-300"
+            >
+              <i class="fab fa-linkedin-in w-4 text-neutral-500" aria-hidden="true"></i>
+              LinkedIn
+            </a>
+            <a
+              href={site.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+              class="flex items-center gap-3 text-sm text-neutral-300 hover:text-brand-200 transition duration-300"
+            >
+              <i class="fab fa-github w-4 text-neutral-500" aria-hidden="true"></i>
+              GitHub
+            </a>
+          </div>
         </div>
 
-        <div class="flex items-center justify-center gap-6 text-neutral-500">
-          <a href="https://linkedin.com/in/muhd-amirul-rashideen-zaidi-65682015a/"
-             target="_blank"
-             rel="noopener noreferrer"
-             title="LinkedIn"
-             class="hover:text-neutral-200 transition duration-300">
-            <i class="fab fa-linkedin-in text-lg"></i>
-          </a>
-          <a href="https://github.com/myruldeen"
-             target="_blank"
-             rel="noopener noreferrer"
-             title="Github"
-             class="hover:text-neutral-200 transition duration-300">
-            <i class="fab fa-github text-lg"></i>
-          </a>
-          <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="text-sm underline underline-offset-4 decoration-neutral-700 hover:text-neutral-200 transition duration-300">
-            Résumé
-          </a>
+        <div class="lg:col-span-7">
+          <form id="quote-form" class="grid grid-cols-1 sm:grid-cols-2 gap-5" novalidate>
+            <div>
+              <label class={labelClass} for="name">Your name</label>
+              <input class={field} type="text" id="name" name="name" required placeholder="Jane Lee" />
+            </div>
+            <div>
+              <label class={labelClass} for="email">Email</label>
+              <input class={field} type="email" id="email" name="email" required placeholder="jane@company.com" />
+            </div>
+            <div>
+              <label class={labelClass} for="company">Company <span class="text-neutral-600">(optional)</span></label>
+              <input class={field} type="text" id="company" name="company" placeholder="Acme Sdn Bhd" />
+            </div>
+            <div>
+              <label class={labelClass} for="projectType">What do you need?</label>
+              <select class={`${field} select-chevron`} id="projectType" name="projectType" required>
+                <option value="">Select a service</option>
+                <option value="website">Custom website</option>
+                <option value="web-app">Web application</option>
+                <option value="mobile-app">Mobile app</option>
+                <option value="backend">Backend or API</option>
+                <option value="design">UI/UX design</option>
+                <option value="maintenance">Maintenance or support</option>
+                <option value="consulting">Technical consulting</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelClass} for="budget">Budget range</label>
+              <select class={`${field} select-chevron`} id="budget" name="budget">
+                {budgets.map((budget) => (
+                  <option value={budget}>{budget}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label class={labelClass} for="timeline">Timeline</label>
+              <select class={`${field} select-chevron`} id="timeline" name="timeline">
+                {timelines.map((timeline) => (
+                  <option value={timeline}>{timeline}</option>
+                ))}
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class={labelClass} for="message">Project details</label>
+              <textarea
+                class={`${field} resize-y min-h-[8rem]`}
+                id="message"
+                name="message"
+                required
+                placeholder="What problem are you trying to solve? Who will use it, and what does success look like?"
+              ></textarea>
+            </div>
+
+            <p id="form-error" class="sm:col-span-2 hidden text-sm text-red-400" role="alert"></p>
+
+            <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-4">
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium bg-brand-500 text-white rounded-xl hover:bg-brand-400 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Request my free quote
+              </button>
+              <p class="text-xs text-neutral-500">
+                No spam, ever. Your details are only used to reply to you.
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement;
+  const errorEl = document.getElementById('form-error');
+  const submitBtn = form?.querySelector('button[type="submit"]');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const name = (data.get('name') as string)?.trim();
+    const email = (data.get('email') as string)?.trim();
+    const projectType = data.get('projectType') as string;
+    const message = (data.get('message') as string)?.trim();
+
+    const fail = (text: string) => {
+      if (!errorEl) return;
+      errorEl.textContent = text;
+      errorEl.classList.remove('hidden');
+    };
+
+    if (!name) return fail('Please add your name.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      return fail('Please add a valid email address.');
+    if (!projectType) return fail('Please choose what you need built.');
+    if (!message || message.length < 20)
+      return fail('Please describe your project in a little more detail (20 characters minimum).');
+
+    if (errorEl) errorEl.classList.add('hidden');
+    if (submitBtn instanceof HTMLButtonElement) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Opening your email client…';
+    }
+
+    const subject = `Project enquiry — ${data.get('projectType')} from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company: ${data.get('company') || '—'}`,
+      `Service: ${projectType}`,
+      `Budget: ${data.get('budget') || '—'}`,
+      `Timeline: ${data.get('timeline') || '—'}`,
+      '',
+      'Details:',
+      message
+    ].join('\n');
+
+    window.location.href = `mailto:myruldeen@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    if (submitBtn instanceof HTMLButtonElement) {
+      submitBtn.textContent = 'Message opened — check your email client';
+    }
+  });
+</script>
+
+<style>
+  .select-chevron {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23737373' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.7rem;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+</style>
+

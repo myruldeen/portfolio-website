@@ -9,20 +9,20 @@
     >
       <button 
         v-show="showButton"
-        @click="scrollToTop"
         class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full 
                bg-neutral-900 text-neutral-400
                flex items-center justify-center
                transform transition-all duration-300 
-               hover:text-emerald-500 hover:border-neutral-700
+               hover:text-brand-200 hover:border-neutral-700
                focus:outline-none focus:ring-2 focus:ring-neutral-500
-               group border border-neutral-800">
+               group border border-neutral-800"
+        @click="scrollToTop">
         
         <!-- Progress Circle -->
         <svg class="absolute w-full h-full -rotate-90">
           <circle
             :stroke-dasharray="`${progressPercent} 100`"
-            class="text-emerald-500"
+            class="text-brand-300"
             stroke-width="2"
             stroke="currentColor"
             fill="transparent"
@@ -33,11 +33,13 @@
         </svg>
   
         <!-- Arrow Icon -->
-        <i class="fas fa-chevron-up text-lg relative z-10 
+        <i
+class="fas fa-chevron-up text-lg relative z-10 
                   group-hover:-translate-y-1 transition-transform duration-300"></i>
         
         <!-- Tooltip -->
-        <span class="absolute -top-8 left-1/2 -translate-x-1/2 
+        <span
+class="absolute -top-8 left-1/2 -translate-x-1/2 
                      bg-neutral-800 text-neutral-200 
                      px-2 py-1 rounded text-xs
                      opacity-0 group-hover:opacity-100 

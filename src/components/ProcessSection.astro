@@ -1,0 +1,46 @@
+---
+import { process } from '../data/site.js';
+---
+
+<section id="process" class="py-24 bg-neutral-950 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16">
+      <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-3">How It Works</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        A process you can predict
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        No black box. You know what happens next, what you owe, and what you get at
+        every stage.
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+      {process.map((step, index) => (
+        <li class="relative pl-12">
+          <div class="absolute left-0 top-0 w-8 h-8 flex items-center justify-center rounded-lg border border-brand-500/40 bg-brand-500/15 text-brand-300 text-xs font-bold">
+            {index + 1}
+          </div>
+          <h3 class="text-base font-semibold text-neutral-100 mb-2 pt-1">
+            <i class={`${step.icon} text-neutral-500 text-xs mr-2`} aria-hidden="true"></i>
+            {step.title}
+          </h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            {step.description}
+          </p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-14 flex flex-col sm:flex-row items-center gap-4 p-6 rounded-xl border border-neutral-800 bg-neutral-900/40">
+      <i class="fas fa-circle-info text-brand-300" aria-hidden="true"></i>
+      <p class="text-sm text-neutral-400 flex-1">
+        Step one is a free call with no obligation. If your project is not a fit, I will
+        tell you and point you somewhere better.
+      </p>
+      <a href="#contact" class="shrink-0 inline-flex items-center px-5 py-2 text-sm font-medium bg-brand-500 text-white rounded-xl hover:bg-brand-400 transition duration-300">
+        Book a call
+      </a>
+    </div>
+  </div>
+</section>

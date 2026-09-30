@@ -12,9 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Muhammad Amirul — Portfolio',
-        short_name: 'Amirul',
-        description: 'Portfolio of Muhammad Amirul, an IT Support Analyst building IoT, software, and hardware solutions.',
+        name: 'deno solution — Custom Websites, Web Apps & Mobile Apps',
+        short_name: 'deno solution',
+        description: 'deno solution builds custom websites, web apps and mobile apps for businesses that need something reliable, fast and easy to use.',
         theme_color: '#050505',
         background_color: '#0a0a0a',
         icons: [

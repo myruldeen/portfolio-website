@@ -1,68 +1,90 @@
 <template>
-    <div v-if="showInstallPrompt" 
-         class="fixed bottom-4 left-4 right-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl p-4 
-                flex items-center justify-between z-50 
-                transform transition-transform duration-300"
-         :class="{ 'translate-y-0': showInstallPrompt, 'translate-y-full': !showInstallPrompt }">
-      <div class="flex items-center space-x-4">
-        <div class="text-indigo-600 dark:text-indigo-400">
-          <i class="fas fa-download text-xl"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-gray-800 dark:text-white">Install App</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Add to your home screen for easy access</p>
-        </div>
+  <transition
+    enter-active-class="transition duration-300 ease-out"
+    enter-from-class="opacity-0 translate-y-6"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition duration-200 ease-in"
+    leave-from-class="opacity-100 translate-y-0"
+    leave-to-class="opacity-0 translate-y-6"
+  >
+    <div
+      v-show="showInstallPrompt"
+      class="fixed bottom-20 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-sm z-50
+             bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl
+             p-4 flex items-center gap-4"
+      role="dialog"
+      aria-label="Install this app"
+    >
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-semibold text-neutral-100">Install deno solution</p>
+        <p class="text-xs text-neutral-400 mt-0.5">Add it to your home screen for quick access.</p>
       </div>
-      <div class="flex space-x-2">
-        <button @click="hideInstallPrompt" 
-                class="px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white">
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          class="px-3 py-1.5 text-xs font-medium text-neutral-400 hover:text-neutral-100 transition duration-300"
+          @click="dismiss"
+        >
           Later
         </button>
-        <button @click="installPWA" 
-                class="px-4 py-1 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+        <button
+          class="px-3.5 py-1.5 text-xs font-medium bg-brand-500 text-white rounded-lg hover:bg-brand-400 transition duration-300"
+          @click="install"
+        >
           Install
         </button>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
-  
-  const showInstallPrompt = ref(false)
-  let deferredPrompt = null
-  
-  const hideInstallPrompt = () => {
-    showInstallPrompt.value = false
-    localStorage.setItem('pwaPromptDismissed', 'true')
+  </transition>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const DISMISS_KEY = 'deno-install-dismissed'
+const showInstallPrompt = ref(false)
+let deferredPrompt = null
+
+const dismiss = () => {
+  showInstallPrompt.value = false
+  localStorage.setItem(DISMISS_KEY, 'true')
+}
+
+const install = async () => {
+  if (!deferredPrompt) return
+
+  deferredPrompt.prompt()
+  const { outcome } = await deferredPrompt.userChoice
+  deferredPrompt = null
+  showInstallPrompt.value = false
+
+  if (outcome === 'accepted') {
+    localStorage.setItem(DISMISS_KEY, 'true')
   }
-  
-  const installPWA = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt()
-      const { outcome } = await deferredPrompt.userChoice
-      if (outcome === 'accepted') {
-        showInstallPrompt.value = false
-      }
-      deferredPrompt = null
-    }
+}
+
+const handleBeforeInstallPrompt = (event) => {
+  event.preventDefault()
+  deferredPrompt = event
+
+  if (!localStorage.getItem(DISMISS_KEY)) {
+    showInstallPrompt.value = true
   }
-  
-  const handleBeforeInstallPrompt = (e) => {
-    e.preventDefault()
-    deferredPrompt = e
-    
-    // Show prompt if not dismissed before
-    if (!localStorage.getItem('pwaPromptDismissed')) {
-      showInstallPrompt.value = true
-    }
-  }
-  
-  onMounted(() => {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-  })
-  
-  onUnmounted(() => {
-    window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-  })
-  </script>
+}
+
+const handleAppInstalled = () => {
+  deferredPrompt = null
+  showInstallPrompt.value = false
+  localStorage.setItem(DISMISS_KEY, 'true')
+}
+
+onMounted(() => {
+  window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+  window.addEventListener('appinstalled', handleAppInstalled)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
+  window.removeEventListener('appinstalled', handleAppInstalled)
+})
+</script>

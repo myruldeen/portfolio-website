@@ -1,0 +1,31 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { work } from '../data/site.js';
+
+const [featured, ...rest] = work;
+---
+
+<section id="work" class="py-24 bg-neutral-950 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16">
+      <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-3">Selected Work</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        Problems solved, not just screens shipped
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        A few projects where a manual process was replaced by something that runs
+        itself. Source code is open on GitHub for most of them.
+      </p>
+    </div>
+
+    <div class="mb-8">
+      <ProjectCard project={featured} variant="featured" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {rest.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+import { engagement } from '../data/site.js';
+
+const quoteFactors = [
+  'Number of screens and workflows',
+  'Integrations with systems you already run',
+  'Design level and content you supply',
+  'Deadline and launch requirements'
+];
+---
+
+<section id="pricing" class="py-24 bg-neutral-950 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16">
+      <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-3">Pricing</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        Ways to work together
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        Every project is quoted individually, because a landing page and a full web
+        application should not cost the same. Pick the arrangement that fits, and you
+        will get a fixed price in writing before anything starts.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {engagement.map((model, index) => (
+        <div class:list={[
+          'relative flex flex-col rounded-xl border p-6 transition duration-300',
+          index === 0
+            ? 'bg-neutral-900/60 border-brand-500/50'
+            : 'bg-neutral-950 border-neutral-800 hover:border-neutral-700'
+        ]}>
+          {index === 0 && (
+            <span class="absolute -top-3 left-6 px-2.5 py-1 rounded-md bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider">
+              Most common
+            </span>
+          )}
+
+          <i class={`${model.icon} text-brand-300 text-lg mb-5`} aria-hidden="true"></i>
+
+          <h3 class="text-lg font-semibold text-neutral-100 mb-1.5">
+            {model.title}
+          </h3>
+          <p class="text-xs text-neutral-500 mb-4 pb-4 border-b border-neutral-800">
+            <span class="font-semibold text-brand-300">Best for:</span> {model.bestFor}
+          </p>
+
+          <p class="text-sm text-neutral-400 leading-relaxed mb-5">
+            {model.description}
+          </p>
+
+          <ul class="space-y-2.5 mb-6">
+            {model.points.map((point) => (
+              <li class="flex items-start text-sm text-neutral-300">
+                <i class="fas fa-check text-brand-300 text-[10px] mt-1.5 mr-2.5 shrink-0" aria-hidden="true"></i>
+                {point}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#contact"
+            class="mt-auto inline-flex items-center justify-center px-5 py-2 text-sm font-medium rounded-xl transition duration-300"
+            class:list={[
+              index === 0
+                ? 'bg-brand-500 text-white hover:bg-brand-400'
+                : 'border border-neutral-700 text-neutral-200 hover:bg-neutral-900'
+            ]}
+          >
+            Request a quote
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h3 class="text-sm font-semibold text-neutral-100 mb-3">
+          What sets your final price
+        </h3>
+        <p class="text-sm text-neutral-400 leading-relaxed">
+          I price on scope, not on hours, and I will always show you what drives the
+          number so you can decide what to cut if the budget is tight.
+        </p>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+        {quoteFactors.map((factor) => (
+          <li class="flex items-start text-sm text-neutral-400">
+            <i class="fas fa-angle-right text-brand-300 mt-0.5 mr-2 shrink-0" aria-hidden="true"></i>
+            {factor}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

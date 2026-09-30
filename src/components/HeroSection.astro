@@ -1,70 +1,69 @@
 ---
-import { Image } from 'astro:assets';
-import myselfImage from '../assets/myself.png';
+import myselfPixel from '../assets/myself-pixel.png';
+import { site } from '../data/site.js';
+
+const promises = [
+  'Free scoping call',
+  'Fixed written quote',
+  'You own the code'
+];
 ---
+
 <section id="hero" class="relative bg-neutral-950 transition-colors duration-200 pt-40 pb-16">
-  <div class="container mx-auto px-4 lg:px-8 max-w-6xl z-10 animate-fade-in-up">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(16,185,129,0.10),transparent)]"></div>
+
+  <div class="container relative mx-auto px-4 lg:px-8 max-w-6xl z-10 animate-fade-in-up">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <!-- Text Content -->
       <div>
-        <!-- Availability Pill -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-xl border border-neutral-800 bg-neutral-900/50 text-sm text-neutral-300">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          Available for freelance &amp; IT projects
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+          Currently taking on new projects
         </div>
 
-        <!-- Headline -->
         <h1 class="font-display text-4xl md:text-5xl font-bold tracking-tight text-neutral-100 mb-6 leading-[1.1]">
-          I build IoT, software, and hardware solutions.
+          I build websites and apps that <span class="text-brand-300">actually work</span>.
         </h1>
 
         <p class="text-lg text-neutral-400 max-w-xl mb-8 font-light">
-          IT enthusiast specializing in IoT, Software, and Hardware. Building clean, efficient solutions for real-world problems.
+          {site.name} designs and develops custom websites, web apps and mobile apps for
+          businesses that need something fast, reliable and easy to use. Scoped properly,
+          quoted fairly, and handed over with the keys.
         </p>
 
-        <!-- Actions -->
-        <div class="flex flex-wrap items-center gap-4 mb-8">
-          <a href="#contact"
-             class="inline-flex items-center px-6 py-2.5 text-sm font-medium bg-emerald-500 text-neutral-950 rounded-xl hover:bg-emerald-400 transition duration-300">
-            Get in Touch &rarr;
+        <div class="flex flex-wrap items-center gap-4 mb-10">
+          <a href="#contact" class="inline-flex items-center px-6 py-2.5 text-sm font-medium bg-brand-500 text-white rounded-xl hover:bg-brand-400 transition duration-300">
+            Get a free quote &rarr;
           </a>
-          <a href="#projects"
-             class="inline-flex items-center px-6 py-2.5 text-sm font-medium border border-neutral-800 rounded-xl text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition duration-300">
-            View my Work
-          </a>
-          <a href="https://drive.google.com/file/d/1exSnCRh-O1PAFCi9pynZsNdiZAg_OLmX/view"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="text-sm font-medium text-neutral-400 hover:text-neutral-200 underline underline-offset-4 decoration-neutral-700 transition duration-300">
-            Résumé (PDF)
+          <a href="#work" class="inline-flex items-center px-6 py-2.5 text-sm font-medium border border-neutral-800 rounded-xl text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700 transition duration-300">
+            See my work
           </a>
         </div>
 
-        <!-- Meta -->
-        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-500">
-          <span>IT Support Analyst</span>
-          <span class="text-neutral-700">&bull;</span>
-          <span>Based in Malaysia</span>
-          <span class="text-neutral-700">&bull;</span>
-          <span>Building since 2019</span>
-        </div>
+        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-neutral-500">
+          {promises.map((promise) => (
+            <li class="flex items-center gap-2">
+              <i class="fas fa-check text-brand-300 text-[10px]"></i>
+              {promise}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <!-- Photo -->
       <div class="relative mx-auto lg:mx-0 max-w-sm lg:max-w-none w-full">
         <div class="rounded-2xl overflow-hidden border border-neutral-800 aspect-[4/5]">
-          <Image
-            src={myselfImage}
-            alt="Muhammad Amirul Rashideen"
-            class="w-full h-full object-cover hover:grayscale-0 transition-all duration-500"
+          <img
+            src={myselfPixel.src}
+            alt={site.owner}
+            width={myselfPixel.width}
+            height={myselfPixel.height}
+            class="pixelated w-full h-full object-cover"
           />
         </div>
 
-        <!-- Floating Stat Card -->
         <div class="absolute -bottom-6 -left-6 sm:-left-10 max-w-[15rem] bg-neutral-900 border border-neutral-800 rounded-xl p-4 shadow-lg">
-          <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-500 mb-1">Currently Working</p>
-          <p class="text-sm font-semibold text-neutral-100 mb-1">Technical Support Analyst</p>
-          <p class="text-xs text-neutral-500">JOS Malaysia Sdn Bhd &middot; since Feb 2024</p>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-brand-300 mb-1">Who you work with</p>
+          <p class="text-sm font-semibold text-neutral-100 mb-1">{site.owner}</p>
+          <p class="text-xs text-neutral-500">{site.role} &middot; {site.location}</p>
         </div>
       </div>
     </div>
@@ -72,17 +71,21 @@ import myselfImage from '../assets/myself.png';
 </section>
 
 <style>
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .animate-fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-}
-.animate-fade-in-up {
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
 </style>

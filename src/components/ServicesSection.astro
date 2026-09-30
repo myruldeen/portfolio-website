@@ -1,0 +1,45 @@
+---
+import { services } from '../data/site.js';
+---
+
+<section id="services" class="py-24 bg-neutral-950 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="mb-16">
+      <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-3">Services</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        Everything you need, under one roof
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        From the first sketch to the deployment and the months after it. One point of
+        contact, no agency overhead, and no need to coordinate three separate contractors.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service, index) => (
+        <div class="group relative overflow-hidden bg-neutral-950 rounded-xl p-6 border border-neutral-800 hover:border-neutral-700 transition duration-300 flex flex-col">
+          <i class={`${service.icon} absolute -bottom-6 -right-6 text-[7rem] leading-none text-neutral-900 group-hover:text-neutral-800/80 transition-colors duration-500 pointer-events-none select-none`} aria-hidden="true"></i>
+
+          <div class="relative flex items-center gap-3 mb-5">
+            <i class={`${service.icon} text-brand-300 text-sm`} aria-hidden="true"></i>
+            <span class="text-[10px] font-bold tracking-wider text-neutral-600">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          <h3 class="relative text-lg font-semibold text-neutral-100 mb-3">
+            {service.title}
+          </h3>
+          <p class="relative text-sm text-neutral-400 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-10 text-sm text-neutral-400">
+      Not sure which of these you actually need?
+      <a href="#contact" class="text-brand-300 hover:text-brand-200 font-medium transition duration-300">Describe the problem &rarr;</a>
+    </p>
+  </div>
+</section>

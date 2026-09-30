@@ -14,6 +14,13 @@ export default [
   },
 
   js.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
+  ...pluginVue.configs['flat/recommended'],
+  {
+    name: 'app/let-vue-plugin-handle-unused',
+    files: ['**/*.vue'],
+    rules: {
+      'no-unused-vars': 'off'
+    }
+  },
   skipFormatting,
 ]

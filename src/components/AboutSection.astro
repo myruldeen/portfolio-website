@@ -1,173 +1,69 @@
 ---
-// Education Data
-const education = [
-  {
-    period: '2020 - 2023',
-    degree: 'Bachelor In Information Technology (Hons)',
-    school: 'University of Selangor',
-    cgpa: '3.59',
-    icon: 'fas fa-user-graduate',
-    achievements: [
-      "Dean's List recipient",
-      'Specialized in Software Development'
-    ]
-  },
-  {
-    period: '2016 - 2020',
-    degree: 'Diploma In Information Technology',
-    school: 'University of Selangor',
-    cgpa: '3.54',
-    icon: 'fas fa-scroll',
-    achievements: [
-      'Best Final Year Project Proposal',
-      'Participated in various tech competitions'
-    ]
-  }
-];
-
-// Experience Data
-const experience = [
-  {
-    period: 'February 2024 - Present',
-    role: 'Technical Support Analyst',
-    company: 'JOS Malaysia Sdn Bhd',
-    icon: 'fas fa-laptop',
-    roleIcon: 'fas fa-laptop',
-    responsibilities: [
-      'Support Infra team on daily task basis on client site at PAPAMY (Panasonic Appliances Air-Conditioning Malaysia Sdn Bhd) and Tasco Berhad.',
-      'Install and upgrade latest EDR, ApexOne agent and virus pattern.',
-      'Install and troubleshoot Microsoft O365 and Teams for common issues.',
-      'Setup and configure Zebra scanner and thermal printer for warehouse operation at Tasco Bhd.',
-      'Configure copier machine and install driver for desktop and laptop.',
-      'Maintain Infra hardware and software such as server, printer, PC and network appliance such as router, switch and AP.'
-    ]
-  },
-  {
-    period: 'August 2023 - November 2023',
-    role: 'IT Support Technician (Intern)',
-    company: 'Panasonic Manufacturing Malaysia Berhad',
-    icon: 'fas fa-laptop',
-    roleIcon: 'fas fa-laptop-code',
-    responsibilities: [
-      'Support Infra team on daily task basis.',
-      'Maintain and upgrade existing Macro Enable Excel project with VBA and MSSQL.',
-      'Upgrade, support and maintain existing web application using VB.net and MSSQL.',
-      'Handle ad-hoc task automation using Powershell and VB.'
-    ]
-  },
-  {
-    period: 'August 2019 - November 2020',
-    role: 'Backend Developer (Intern)',
-    company: 'Grab Haulier Sdn Bhd',
-    icon: 'fas fa-code',
-    roleIcon: 'fas fa-code',
-    responsibilities: [
-      'Develop, design and maintain pricelist microservices',
-      'Develop, design and maintain web automation.'
-    ]
-  }
-];
+import { site, credentials, differentiators } from '../data/site.js';
 ---
+
 <section id="about" class="py-24 bg-neutral-950 transition-colors duration-200">
   <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
     <div class="mb-16">
-      <p class="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3">About</p>
-      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-6">
-        About Me
+      <p class="text-xs font-bold uppercase tracking-widest text-brand-300 mb-3">About</p>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-neutral-100 mb-4">
+        A small studio, on purpose
       </h2>
-      <p class="text-lg text-neutral-400 max-w-3xl leading-relaxed">
-        With a strong background in IT support and customer service, I specialize in providing efficient 
-        and effective solutions to technical issues that users encounter. My role involves 
-        troubleshooting hardware and software problems, ensuring system stability, and helping 
-        users make the most of the technology available to them.
+      <p class="text-lg text-neutral-400 max-w-2xl">
+        {site.name} is a solo practice run by {site.owner}. Working directly with the
+        person doing the work keeps communication simple, quality consistent and
+        costs lower than an agency would charge you for the same thing.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      <!-- Education Section -->
-      <div class="space-y-8">
-        <h3 class="font-display text-xl font-bold tracking-tight text-neutral-100 flex items-center">
-          <i class="fas fa-graduation-cap mr-3 text-neutral-500"></i>
-          Education
-        </h3>
-        
-        <div class="relative border-l border-neutral-800 ml-3">
-          <div class="space-y-12">
-            {education.map((edu) => (
-              <div class="relative pl-8 group">
-                <!-- Timeline Dot -->
-                <div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 bg-emerald-600 rounded-full border-2 border-neutral-950 group-hover:bg-emerald-400 transition-colors duration-300">
-                </div>
-                
-                <!-- Content -->
-                <div>
-                  <span class="text-sm font-medium text-neutral-500 block mb-1">
-                    {edu.period}
-                  </span>
-                  <h4 class="text-base font-semibold text-neutral-200">
-                    {edu.degree}
-                  </h4>
-                  <p class="text-sm text-neutral-400 mt-1 mb-3">
-                    {edu.school}
-                  </p>
-                  <div class="mb-3 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-neutral-900 text-emerald-500">
-                    CGPA {edu.cgpa}
-                  </div>
-                  <ul class="space-y-1.5">
-                    {edu.achievements.map((achievement) => (
-                      <li class="text-sm text-neutral-400 flex items-start">
-                        <span class="mr-2 text-neutral-600">&bull;</span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      {credentials.map((item) => (
+        <div class="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6">
+          <i class={`${item.icon} text-brand-300 text-sm mb-4`} aria-hidden="true"></i>
+          <p class="font-display text-2xl font-bold text-neutral-100 mb-2">
+            {item.value}
+          </p>
+          <p class="text-sm text-neutral-400 leading-relaxed">{item.label}</p>
         </div>
-      </div>
+      ))}
+    </div>
 
-      <!-- Experience Section -->
-      <div class="space-y-8">
-        <h3 class="font-display text-xl font-bold tracking-tight text-neutral-100 flex items-center">
-          <i class="fas fa-briefcase mr-3 text-neutral-500"></i>
-          Experience
-        </h3>
-        
-        <div class="relative border-l border-neutral-800 ml-3">
-          <div class="space-y-12">
-            {experience.map((job) => (
-              <div class="relative pl-8 group">
-                <!-- Timeline Dot -->
-                <div class="absolute left-[-5px] top-1.5 w-2.5 h-2.5 bg-emerald-600 rounded-full border-2 border-neutral-950 group-hover:bg-emerald-400 transition-colors duration-300">
-                </div>
-                
-                <!-- Content -->
-                <div>
-                  <span class="text-sm font-medium text-neutral-500 block mb-1">
-                    {job.period}
-                  </span>
-                  <h4 class="text-base font-semibold text-neutral-200">
-                    {job.role}
-                  </h4>
-                  <p class="text-sm text-neutral-400 mt-1 mb-3">
-                    {job.company}
-                  </p>
-                  <ul class="space-y-1.5">
-                    {job.responsibilities.map((responsibility) => (
-                      <li class="text-sm text-neutral-400 flex items-start">
-                        <span class="mr-2 text-neutral-600">&bull;</span>
-                        <span class="leading-relaxed">{responsibility}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+    <h3 class="font-display text-xl font-bold tracking-tight text-neutral-100 mb-8">
+      How working with me is different
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      {differentiators.map((item) => (
+        <div>
+          <h4 class="text-base font-semibold text-neutral-100 mb-2 flex items-start gap-3">
+            <i class="fas fa-check text-brand-300 text-xs mt-1.5 shrink-0" aria-hidden="true"></i>
+            {item.title}
+          </h4>
+          <p class="text-sm text-neutral-400 leading-relaxed pl-6">
+            {item.description}
+          </p>
         </div>
+      ))}
+    </div>
+
+    <div class="mt-14 p-6 sm:p-8 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col sm:flex-row sm:items-center gap-6">
+      <div class="flex-1">
+        <p class="text-sm text-neutral-300 leading-relaxed">
+          Outside of building software I work as a {site.role.toLowerCase()}, which means
+          I spend my days on production systems, user-reported bugs and the unglamorous
+          work that keeps software running. It is a good background for building things
+          that hold up outside a demo.
+        </p>
       </div>
+      <a
+        href={site.socials.resume}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium border border-neutral-700 rounded-xl text-neutral-200 hover:bg-neutral-800 transition duration-300"
+      >
+        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+        Read my full CV
+      </a>
     </div>
   </div>
 </section>

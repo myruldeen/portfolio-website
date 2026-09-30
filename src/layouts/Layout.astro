@@ -1,39 +1,74 @@
 ---
 import '../style.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import { site, seo } from '../data/site.js';
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = site.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  email: site.email,
+  image: new URL(seo.ogImage, site.url).href,
+  founder: {
+    '@type': 'Person',
+    name: site.owner,
+    jobTitle: site.role
+  },
+  areaServed: 'Worldwide',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MY'
+  },
+  sameAs: [site.socials.linkedin, site.socials.github]
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth selection:bg-emerald-500/30 selection:text-emerald-200">
+<html lang="en" class="dark scroll-smooth selection:bg-brand-500/30 selection:text-brand-100">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="canonical" href={canonical}>
 
-    <!-- Fonts -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content={site.name}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonical}>
+    <meta property="og:image" content={new URL(seo.ogImage, site.url).href}>
+    <meta property="og:locale" content="en_MY">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={new URL(seo.ogImage, site.url).href}>
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- PWA Meta Tags -->
+
     <meta name="theme-color" content="#050505">
-    <meta name="description" content="Portfolio of Muhammad Amirul, an IT Support Analyst building IoT, software, and hardware solutions.">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
-    <link rel="mask-icon" href="/masked-icon.svg" color="#10b981">
-    
-    <!-- PWA Status Bar Color for iOS -->
+    <link rel="mask-icon" href="/masked-icon.svg" color="#0060c0">
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Add to Home Screen prompt -->
-    <meta name="apple-mobile-web-app-title" content="Portfolio">
+    <meta name="apple-mobile-web-app-title" content={site.name}>
   </head>
   <body class="bg-neutral-950 text-neutral-200 antialiased min-h-screen flex flex-col font-sans">
     <div class="min-h-screen bg-neutral-950 transition-colors duration-200 flex flex-col">

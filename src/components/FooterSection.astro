@@ -1,10 +1,83 @@
 ---
+import { Image } from 'astro:assets';
+import logoFull from '../assets/logo-full.png';
+import { site, navItems, services } from '../data/site.js';
+
 const currentYear = new Date().getFullYear();
 ---
-<footer class="bg-neutral-950 border-t border-neutral-800 py-8 transition-colors duration-200">
-  <div class="container mx-auto px-4 text-center">
-    <p class="text-sm text-neutral-500">
-      &copy; {currentYear} Muhammad Amirul. All rights reserved.
-    </p>
+
+<footer class="bg-neutral-950 border-t border-neutral-800 py-12 transition-colors duration-200">
+  <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+      <div>
+        <a href="#hero" class="inline-flex mb-5" aria-label={`${site.name} home`}>
+          <Image
+            src={logoFull}
+            alt={site.name}
+            width={150}
+            class="w-[8.5rem] h-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+          />
+        </a>
+        <p class="text-sm text-neutral-500 leading-relaxed">
+          {site.tagline}. Based in {site.location}, working with clients worldwide.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4">Services</h3>
+        <ul class="space-y-2.5">
+          {services.slice(0, 4).map((service) => (
+            <li>
+              <a href="#services" class="text-sm text-neutral-400 hover:text-brand-200 transition duration-300">
+                {service.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4">Navigate</h3>
+        <ul class="space-y-2.5">
+          {navItems.map((item) => (
+            <li>
+              <a href={item.link} class="text-sm text-neutral-400 hover:text-brand-200 transition duration-300">
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-4">Get in touch</h3>
+        <ul class="space-y-2.5">
+          <li>
+            <a href={`mailto:${site.email}`} class="text-sm text-neutral-400 hover:text-brand-200 transition duration-300 break-all">
+              {site.email}
+            </a>
+          </li>
+          <li>
+            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-brand-200 transition duration-300">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href={site.socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-brand-200 transition duration-300">
+              <i class="fab fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-sm text-neutral-500">
+        &copy; {currentYear} {site.name}. All rights reserved.
+      </p>
+      <p class="text-xs text-neutral-600">
+        Built by {site.owner}
+      </p>
+    </div>
   </div>
 </footer>
