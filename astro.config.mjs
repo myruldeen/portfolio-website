@@ -10,7 +10,6 @@ export default defineConfig({
     tailwind(),
     astroPwa({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: 'deno solution — Custom Websites, Web Apps & Mobile Apps',
         short_name: 'deno solution',
@@ -35,6 +34,15 @@ export default defineConfig({
             purpose: 'any maskable'
           }
         ]
+      },
+      workbox: {
+        // The default only precaches root-level icons, which left the
+        // FontAwesome woff2 fonts, the logo and the hero image uncached,
+        // so icons rendered as tofu boxes offline. ttf is deliberately
+        // omitted: it is a fallback for browsers older than woff2 support
+        // and costs 768KB of the precache.
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
+        globIgnores: ['**/_headers', '**/_redirects']
       }
     })
   ]
