@@ -42,7 +42,11 @@ export default defineConfig({
         // omitted: it is a fallback for browsers older than woff2 support
         // and costs 768KB of the precache.
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
-        globIgnores: ['**/_headers', '**/_redirects']
+        globIgnores: ['**/_headers', '**/_redirects'],
+        // Workbox caps precache entries at 2MiB and throws on anything larger,
+        // which fails the whole Cloudflare Pages build. Nothing here should be
+        // near that, so keep the ceiling explicit rather than accidental.
+        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024
       }
     })
   ]

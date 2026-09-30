@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import myselfImage from '../assets/myself-2.png';
 import { site } from '../data/site.js';
 
 const promises = [
@@ -52,11 +50,16 @@ const promises = [
 
       <div class="relative mx-auto lg:mx-0 max-w-sm lg:max-w-none w-full">
         <div class="rounded-2xl overflow-hidden border border-neutral-800 aspect-[4/5]">
-          <Image
-            src={myselfImage}
-            alt={site.owner}
-            widths={[384, 576, 768, 1180]}
+          <img
+            src="/images/myself-2-1180.webp"
+            srcset="/images/myself-2-384.webp 384w, /images/myself-2-768.webp 768w, /images/myself-2-1180.webp 1180w"
             sizes="(min-width: 1024px) 576px, (min-width: 640px) 384px, 100vw"
+            alt={site.owner}
+            width="1180"
+            height="1333"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
             class="w-full h-full object-cover"
           />
         </div>
