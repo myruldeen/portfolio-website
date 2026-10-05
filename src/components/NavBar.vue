@@ -1,12 +1,12 @@
 <template>
-  <div class="fixed top-4 left-0 right-0 z-50">
-    <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
-      <nav
-        class="bg-neutral-900/80 backdrop-blur-md border rounded-xl shadow-sm transition-all duration-300"
-        :class="scrolled ? 'border-neutral-800' : 'border-transparent bg-transparent backdrop-blur-0 shadow-none'"
-      >
-        <div class="px-6 lg:px-8">
-          <div class="flex items-center justify-between h-14">
+  <div data-nav-root class="fixed top-0 left-0 right-0 z-50">
+    <nav
+      class="bg-neutral-950/80 backdrop-blur-md border-b transition-all duration-300"
+      :class="scrolled ? 'border-neutral-800 bg-neutral-900/80 shadow-sm' : 'border-transparent bg-transparent backdrop-blur-0 shadow-none'"
+    >
+      <div class="container mx-auto max-w-6xl px-4 lg:px-8">
+        <div class="px-2 lg:px-4">
+          <div class="flex items-center justify-between h-16">
             <a href="#hero" class="flex items-center gap-2.5 group" aria-label="deno solution home">
               <img :src="mark.src" alt="" aria-hidden="true" width="34" height="19" class="w-[34px] h-auto shrink-0" />
               <span class="text-lg font-display font-bold tracking-tight text-neutral-100 group-hover:text-brand-300 transition-colors">
@@ -51,8 +51,8 @@
             </div>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
 
     <transition
       enter-active-class="transition duration-200 ease-out"
@@ -65,7 +65,7 @@
       <div
         v-show="isMenuOpen"
         id="mobile-menu"
-        class="lg:hidden absolute left-0 right-0 top-full mt-2 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-lg py-4 overflow-hidden origin-top"
+        class="lg:hidden absolute left-0 right-0 top-full mt-3 px-4 lg:px-8 bg-neutral-950/95 backdrop-blur-md border-b border-neutral-800 shadow-lg py-4 overflow-hidden origin-top"
       >
         <div class="flex flex-col space-y-1 px-4">
           <a
@@ -108,7 +108,7 @@ const closeMenu = () => {
 }
 
 const handleClickOutside = (event) => {
-  const nav = event.target.closest('.fixed.top-4')
+  const nav = event.target.closest('[data-nav-root]')
   const button = event.target.closest('button')
 
   if (isMenuOpen.value && !nav && !button) {
