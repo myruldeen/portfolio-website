@@ -113,8 +113,22 @@ export const process = [
 
 export const work = [
   {
-    title: 'Smart Agriculture Platform',
+    title: 'Mandat Analytic',
     featured: true,
+    status: 'Live',
+    image: '/projects/mandat-analytic/1.png',
+    liveLink: 'https://mandatanalytic.com',
+    problem:
+      'The site existed as an application on GitHub with nowhere to run. No domain was pointed anywhere, so there was no way to publish an update or show the work to a client.',
+    solution:
+      'A Contabo VPS running Coolify as the deployment layer, with the repository connected so every push builds and ships itself. DNS and TLS are configured on the domain, so the client publishes by pushing rather than by logging into a server.',
+    outcome:
+      'The site is live on its own domain and redeploys on every commit, with no manual steps and nothing to remember between an update and it being public.',
+    technologies: ['Contabo VPS', 'Coolify', 'Docker', 'GitHub', 'Nginx', 'DNS & TLS']
+  },
+  {
+    title: 'Smart Agriculture Platform',
+    featured: false,
     status: 'Completed',
     image: '/projects/smart-agriculture/1.png',
     problem:
