@@ -42,7 +42,11 @@ export default defineConfig({
         // omitted: it is a fallback for browsers older than woff2 support
         // and costs 768KB of the precache.
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2}'],
-        globIgnores: ['**/_headers', '**/_redirects'],
+        // public/icon is the designer's source pack. Only favicon.ico and
+        // favicon-96x96.png are served from it; the rest are alternates we
+        // deploy under different names, so precaching the folder would ship
+        // ~195KB of duplicates.
+        globIgnores: ['**/_headers', '**/_redirects', 'icon/**'],
         // Workbox caps precache entries at 2MiB and throws on anything larger,
         // which fails the whole Cloudflare Pages build. Nothing here should be
         // near that, so keep the ceiling explicit rather than accidental.
